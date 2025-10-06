@@ -84,7 +84,7 @@ const App = () => {
     try{
       localStorage.removeItem('token');
       setUser(null)
-
+      navigate('/')
     } catch(error){
       console.log(error)
     }

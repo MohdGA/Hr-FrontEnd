@@ -1,5 +1,5 @@
 import profileImg from '../../assets/profile.png';
-import "./Profile.css";
+import './Profile.css';
 
 const Profile = ({user, hr}) => {
     const owner = hr.filter((hr) => hr.user.username === user.username);
@@ -26,19 +26,8 @@ const Profile = ({user, hr}) => {
                                 <span>Email:</span>
                                 <span>{owner[0].user.email}</span>
                             </li>
-                            <li>
-                                <span>Department:</span>
-                                <span>{owner[0].department}</span>
-                            </li>
-                            <li>
-                                <span>Position:</span>
-                                <span>{owner[0].name}</span>
-                            </li>
                         </ul>
                         
-                        <button className="edit-profile-button">
-                            Edit Profile
-                        </button>
                     </>
                 ) : (
                     <p className="not-exists">User profile not found</p>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "./LeaveForm.css";
+import './LeaveForm.css';
 
 const LeaveForm = (props) => {
     const {employeeId} = useParams();

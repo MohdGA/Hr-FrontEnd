@@ -1,16 +1,16 @@
-/* Sign In Page */
-.signin-container {
+/* HR Form Container */
+.hr-form-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 24px;
+  padding: 40px 24px;
   position: relative;
   overflow: hidden;
 }
 
-.signin-container::before {
+.hr-form-container::before {
   content: '';
   position: absolute;
   top: 0;
@@ -21,12 +21,12 @@
   opacity: 0.3;
 }
 
-.signin-form-wrapper {
+.hr-form-wrapper {
   background: white;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   padding: 48px;
-  max-width: 480px;
+  max-width: 800px;
   width: 100%;
   position: relative;
   z-index: 2;
@@ -44,114 +44,134 @@
   }
 }
 
-.signin-header {
+/* Form Header */
+.hr-form-header {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.signin-logo {
+.header-icon {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-.signin-logo svg {
-  width: 40px;
-  height: 40px;
-}
-
-.signin-logo-text {
-  font-size: 28px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.signin-header h1 {
+.hr-form-header h1 {
   font-size: 32px;
   font-weight: 700;
   color: #1a202c;
   margin: 0 0 8px 0;
 }
 
-.signin-header p {
+.hr-form-header p {
   color: #718096;
   font-size: 16px;
   margin: 0;
 }
 
-.signin-form {
+/* Form Grid */
+.hr-form {
   display: flex;
   flex-direction: column;
+  gap: 32px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
-.form-group {
+.form-field {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.form-group label {
-  font-weight: 600;
-  color: #2d3748;
-  font-size: 14px;
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Labels */
+.form-field label {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 14px;
 }
 
-.form-group label svg {
-  width: 16px;
-  height: 16px;
+.form-field label svg {
   color: #667eea;
+  flex-shrink: 0;
 }
 
-.input-wrapper {
-  position: relative;
-}
-
-.form-group input {
+/* Inputs */
+.form-field input,
+.form-field select {
   width: 100%;
   padding: 14px 16px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-size: 16px;
-  transition: all 0.3s ease;
   background: #f7fafc;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
-.form-group input:focus {
+.form-field input:focus,
+.form-field select:focus {
   outline: none;
   border-color: #667eea;
   background: white;
   box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
-.error-message {
-  background: #fee;
-  color: #c53030;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0;
+.form-field input:hover,
+.form-field select:hover {
+  border-color: #cbd5e0;
 }
 
-.button-group {
+.form-field input.error,
+.form-field select.error {
+  border-color: #fc8181;
+  background: #fff5f5;
+}
+
+.form-field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%234a5568' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 48px;
+}
+
+/* Error Text */
+.error-text {
+  color: #c53030;
+  font-size: 12px;
+  margin-top: 4px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.error-text::before {
+  content: '⚠';
+  font-size: 14px;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
   gap: 12px;
   margin-top: 8px;
 }
 
-.button-group button {
+.form-actions button {
+  flex: 1;
   padding: 14px 24px;
   border-radius: 12px;
   font-size: 16px;
@@ -165,72 +185,71 @@
   gap: 8px;
 }
 
-.button-group button[type="submit"] {
+.submit-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
-.button-group button[type="submit"]:hover {
+.submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.button-group button[type="submit"]:active {
+.submit-btn:active {
   transform: translateY(0);
 }
 
-.cancel-button {
+.cancel-btn {
   background: transparent;
   color: #4a5568;
   border: 2px solid #e2e8f0;
 }
 
-.cancel-button:hover {
+.cancel-btn:hover {
   background: #f7fafc;
   border-color: #cbd5e0;
 }
 
-.signin-footer {
-  text-align: center;
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.signin-footer p {
-  color: #718096;
-  font-size: 14px;
-  margin: 0;
-}
-
-.signin-footer a {
-  color: #667eea;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.signin-footer a:hover {
-  color: #764ba2;
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  .signin-container {
-    padding: 16px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hr-form-container {
+    padding: 24px 16px;
   }
 
-  .signin-form-wrapper {
+  .hr-form-wrapper {
     padding: 32px 24px;
   }
 
-  .signin-header h1 {
+  .hr-form-header h1 {
     font-size: 28px;
   }
 
-  .signin-logo-text {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hr-form-wrapper {
+    padding: 24px 20px;
+  }
+
+  .hr-form-header h1 {
     font-size: 24px;
+  }
+
+  .form-field input,
+  .form-field select {
+    font-size: 14px;
+    padding: 12px 14px;
   }
 }

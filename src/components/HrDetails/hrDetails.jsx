@@ -178,16 +178,11 @@ const HrDetails = ({ user, handleDeleteHr }) => {
                                             <div className="date-item">
                                                 <span className="date-label">End Date</span>
                                                 <span className="date-value">{new Date(leave.end_date).toLocaleDateString()}</span>
+                                                <button className="delete-leave-btn" onClick={() => handleDeleteLeave(leave.id)}>Delete Leave</button>
                                             </div>
+
                                         </div>
-                                        {isOwner && (
-                                            <button
-                                                className="delete-leave-btn"
-                                                onClick={() => handleDeleteLeave(leave.id)}
-                                            >
-                                                <i className="fas fa-trash"></i>
-                                            </button>
-                                        )}
+                                       
                                     </div>
                                 ))}
                             </div>
@@ -229,14 +224,7 @@ const HrDetails = ({ user, handleDeleteHr }) => {
                                             </span>
                                         </div>
                                         <p className="performance-comments">{performance.comments}</p>
-                                        {isOwner && (
-                                            <button
-                                                className="delete-performance-btn"
-                                                onClick={() => handleDeletePerformance(performance.id)}
-                                            >
-                                                <i className="fas fa-trash"></i>
-                                            </button>
-                                        )}
+                                        <button className='delete-performance-btn' onClick={() => handleDeletePerformance(performance.id)}>Delete Performance</button>
                                     </div>
                                 ))}
                             </div>
