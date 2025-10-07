@@ -23,7 +23,6 @@ const App = () => {
   const [hr, setHr] = useState([]);
   const [user,setUser] = useState(userState);
   const navigate = useNavigate();
-
   
   useEffect(() => {
     const fetchAllHrs = async () => {

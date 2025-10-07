@@ -1,15 +1,14 @@
 import profileImg from '../../assets/profile.png';
 import './Profile.css';
 
-const Profile = ({user, hr}) => {
-    const owner = hr.filter((hr) => hr.user.username === user.username);
-    
+const Profile = ({user}) => {
+  
     return (
         <div className="profile-container">
             <h1>User Profile</h1>
             
             <div className="profile-section">
-                {owner.length > 0 ? (
+                {user ? (
                     <>
                         <img 
                             src={profileImg} 
@@ -20,17 +19,14 @@ const Profile = ({user, hr}) => {
                         <ul className="profile-info">
                             <li>
                                 <span>Username:</span>
-                                <span>{owner[0].user.username}</span>
-                            </li>
-                            <li>
-                                <span>Email:</span>
-                                <span>{owner[0].user.email}</span>
+                                <span>{user.username}</span>
                             </li>
                         </ul>
                         
                     </>
                 ) : (
                     <p className="not-exists">User profile not found</p>
+                    
                 )}
             </div>
         </div>
